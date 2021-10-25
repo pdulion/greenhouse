@@ -1,11 +1,15 @@
 package com.dulion.greenhouse.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import java.time.LocalDateTime;
+import java.util.UUID;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.PersistenceConstructor;
 
 public class Sensor {
 
   @Id
-  private long sensor;
+  private final UUID sensorId;
 
   private String name;
 
@@ -19,12 +23,21 @@ public class Sensor {
 
   private int dryOffSpan;
 
-  public long getSensor() {
-    return sensor;
+  private LocalDateTime created_at;
+
+  private LocalDateTime updated_at;
+
+  public Sensor() {
+    this.sensorId = null;
   }
 
-  public void setSensor(long sensor) {
-    this.sensor = sensor;
+  @PersistenceConstructor
+  public Sensor(UUID sensorId) {
+    this.sensorId = sensorId;
+  }
+
+  public UUID getSensorId() {
+    return sensorId;
   }
 
   public String getName() {
@@ -73,5 +86,21 @@ public class Sensor {
 
   public void setDryOffSpan(int dryOffSpan) {
     this.dryOffSpan = dryOffSpan;
+  }
+
+  public LocalDateTime getCreated_at() {
+    return created_at;
+  }
+
+  public void setCreated_at(LocalDateTime created_at) {
+    this.created_at = created_at;
+  }
+
+  public LocalDateTime getUpdated_at() {
+    return updated_at;
+  }
+
+  public void setUpdated_at(LocalDateTime updated_at) {
+    this.updated_at = updated_at;
   }
 }

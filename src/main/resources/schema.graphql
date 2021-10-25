@@ -1,0 +1,27 @@
+type Sensor {
+  sensorId: ID
+  name: String
+  heatDegrees: Float
+  coolDegrees: Float
+  dryPercent: Float
+  dryOnSpan: Int
+  dryOffSpan: Int
+  createdAt: String
+  updatedAt: String
+  readings: [Reading]
+}
+
+type Reading {
+  readingId: ID
+  temperature: Float
+  humidity: Float
+  createdAt: String
+  sensor: Sensor
+}
+
+type Query {
+  sensors: [Sensor]
+  readings: [Reading]
+  sensorById(sensorId: ID): Sensor
+  readingById(readingId: ID): Reading
+}

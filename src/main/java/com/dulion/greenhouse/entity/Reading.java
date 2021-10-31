@@ -13,9 +13,9 @@ public class Reading {
 
   private UUID sensorId;
 
-  private LocalDateTime created_at;
+  private LocalDateTime createdAt;
 
-  private int temperature;
+  private double temperature;
 
   private double humidity;
 
@@ -40,19 +40,19 @@ public class Reading {
     this.sensorId = sensorId;
   }
 
-  public LocalDateTime getCreated_at() {
-    return created_at;
+  public LocalDateTime getCreatedAt() {
+    return createdAt;
   }
 
-  public void setCreated_at(LocalDateTime created_at) {
-    this.created_at = created_at;
+  public void setCreatedAt(LocalDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
-  public int getTemperature() {
+  public double getTemperature() {
     return temperature;
   }
 
-  public void setTemperature(int temperature) {
+  public void setTemperature(double temperature) {
     this.temperature = temperature;
   }
 

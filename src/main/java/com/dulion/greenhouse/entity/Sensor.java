@@ -1,6 +1,5 @@
 package com.dulion.greenhouse.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDateTime;
 import java.util.UUID;
 import org.springframework.data.annotation.Id;
@@ -13,19 +12,19 @@ public class Sensor {
 
   private String name;
 
-  private int heatDegrees;
+  private double heatDegrees;
 
-  private int coolDegrees;
+  private double coolDegrees;
 
-  private int dryPercent;
+  private double dryPercent;
 
   private int dryOnSpan;
 
   private int dryOffSpan;
 
-  private LocalDateTime created_at;
+  private LocalDateTime createdAt;
 
-  private LocalDateTime updated_at;
+  private LocalDateTime updatedAt;
 
   public Sensor() {
     this.sensorId = null;
@@ -48,27 +47,27 @@ public class Sensor {
     this.name = name;
   }
 
-  public int getHeatDegrees() {
+  public double getHeatDegrees() {
     return heatDegrees;
   }
 
-  public void setHeatDegrees(int heatDegrees) {
+  public void setHeatDegrees(double heatDegrees) {
     this.heatDegrees = heatDegrees;
   }
 
-  public int getCoolDegrees() {
+  public double getCoolDegrees() {
     return coolDegrees;
   }
 
-  public void setCoolDegrees(int coolDegrees) {
+  public void setCoolDegrees(double coolDegrees) {
     this.coolDegrees = coolDegrees;
   }
 
-  public int getDryPercent() {
+  public double getDryPercent() {
     return dryPercent;
   }
 
-  public void setDryPercent(int dryPercent) {
+  public void setDryPercent(double dryPercent) {
     this.dryPercent = dryPercent;
   }
 
@@ -88,19 +87,19 @@ public class Sensor {
     this.dryOffSpan = dryOffSpan;
   }
 
-  public LocalDateTime getCreated_at() {
-    return created_at;
+  public LocalDateTime getCreatedAt() {
+    return createdAt;
   }
 
-  public void setCreated_at(LocalDateTime created_at) {
-    this.created_at = created_at;
+  public void setCreatedAt(LocalDateTime createdAt) {
+    this.createdAt = createdAt;
   }
 
-  public LocalDateTime getUpdated_at() {
-    return updated_at;
+  public LocalDateTime getUpdatedAt() {
+    return updatedAt;
   }
 
-  public void setUpdated_at(LocalDateTime updated_at) {
-    this.updated_at = updated_at;
+  public void setUpdatedAt(LocalDateTime updatedAt) {
+    this.updatedAt = updatedAt;
   }
 }

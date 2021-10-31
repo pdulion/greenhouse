@@ -1,5 +1,6 @@
 package com.dulion.greenhouse.entity;
 
+import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ public class Initializer {
 
   private boolean initialized = false;
 
+  @PostConstruct
   public void insertData() {
     LOG.info("Storage Initialization: Checking database status...");
     template.query("SELECT count(*) FROM sensor;", rs -> {

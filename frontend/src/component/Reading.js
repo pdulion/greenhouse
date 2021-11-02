@@ -1,11 +1,24 @@
 import './Reading.css';
+import NumberFormat from 'react-number-format';
 
 function Reading(props) {
+  const reading = props.reading;
+
   return (
     <div className="reading">
-      <div>{props.createdAt.toLocaleString()}</div>
-      <div>Temperature: {props.temperature}&deg;</div>
-      <div>Humidity: {props.humidity}%</div>
+      <div>{reading.createdAt.toLocaleString()}</div>
+      <div><NumberFormat
+        value={reading.temperature}
+        displayType={"text"}
+        decimalScale={1}
+        fixedDecimalScale={true}
+        suffix="&deg;" /></div>
+      <div><NumberFormat
+        value={reading.humidity}
+        displayType={"text"}
+        decimalScale={1}
+        fixedDecimalScale={true}
+        suffix="%" /></div>
     </div>
   );
 }

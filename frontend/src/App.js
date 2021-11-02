@@ -18,11 +18,10 @@ function App() {
     temperature: 79.5,
     humidity: 79.9
   }];
+
   return (
     <div>
-      {readings.map((reading) => (
-        <Reading createdAt={reading.createdAt} temperature={reading.temperature} humidity={reading.humidity}></Reading>
-      ))}
+      {readings.map(reading => <Reading reading={reading}/>)}
     </div>
   );
 }

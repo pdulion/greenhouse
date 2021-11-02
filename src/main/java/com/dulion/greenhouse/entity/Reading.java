@@ -1,6 +1,5 @@
 package com.dulion.greenhouse.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDateTime;
 import java.util.UUID;
 import org.springframework.data.annotation.Id;

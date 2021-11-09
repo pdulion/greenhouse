@@ -1,7 +1,7 @@
 import './Reading.css';
 import NumberFormat from 'react-number-format';
 
-function Reading(props) {
+const Reading = (props) => {
   const reading = props.reading;
 
   return (

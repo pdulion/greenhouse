@@ -6,24 +6,32 @@ import {
   useQuery,
   gql
 } from "@apollo/client";
+import { Col, Container, Row } from 'react-bootstrap';
 
 const client = new ApolloClient({
   uri: 'http://localhost:8080/graphql',
   cache: new InMemoryCache()
 });
 
-function App() {
-  client.query({
-    query: gql`
-      query {
-        sensorById(sensorId: "e56e12d5-52ca-49a1-a7f6-4392325d960d") {
-          sensorId name heatDegrees coolDegrees dryPercent dryOnSpan dryOffSpan createdAt updatedAt
-          readings {
-            readingId temperature humidity createdAt 
-          }
-        }
-      }`
-  }).then(result => console.log(result));
+const QUERY_SENSORS = gql`
+  query {
+    sensors {
+      sensorId name heatDegrees coolDegrees dryPercent dryOnSpan dryOffSpan createdAt updatedAt
+      readings {
+        readingId temperature humidity createdAt 
+      }
+    }
+  }
+`
+  
+const Greenhouse = () => {
+  const { loading, error, data } = useQuery(QUERY_SENSORS);
+
+  if (loading) return "Loading...";
+
+  if (error) return `Error: ${error.message}`
+
+  console.log(data);
 
   const readings = [{
     key: 1,
@@ -48,9 +56,17 @@ function App() {
   }];
 
   return (
-    <div>
+    <Container md={{ span: 10, offset: 1 }}>
       {readings.map(reading => <Reading key={reading.key} reading={reading} />)}
-    </div>
+    </Container>
+  );
+}
+
+const App = () => {
+  return (
+    <ApolloProvider client={client}>
+      <Greenhouse />
+    </ApolloProvider>
   );
 }
 

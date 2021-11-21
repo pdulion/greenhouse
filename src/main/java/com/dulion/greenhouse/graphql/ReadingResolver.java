@@ -16,6 +16,6 @@ public class ReadingResolver implements GraphQLResolver<Reading> {
   private SensorRepository sensors;
 
   public Optional<Sensor> getSensor(@NotNull Reading reading) {
-    return sensors.findById(reading.getReadingId());
+    return sensors.findById(reading.getSensorId());
   }
 }

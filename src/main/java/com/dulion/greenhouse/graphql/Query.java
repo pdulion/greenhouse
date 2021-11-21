@@ -8,6 +8,7 @@ import com.dulion.greenhouse.entity.SensorRepository;
 import java.util.Optional;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -23,7 +24,10 @@ public class Query implements GraphQLQueryResolver {
     return sensors.findAll();
   }
 
-  public Iterable<Reading> readings() {
+  public Iterable<Reading> readings(int page, int size) {
+    if (size > 0) {
+      return readings.findAll(PageRequest.of(page, size));
+    }
     return readings.findAll();
   }
 

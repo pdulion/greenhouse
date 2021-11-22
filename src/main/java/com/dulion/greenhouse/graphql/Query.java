@@ -24,7 +24,7 @@ public class Query implements GraphQLQueryResolver {
     return sensors.findAll();
   }
 
-  public Iterable<Reading> readings(int page, int size) {
+  public Iterable<Reading> readings(int interval, int page, int size) {
     if (size > 0) {
       return readings.findAll(PageRequest.of(page, size));
     }

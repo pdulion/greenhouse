@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ReadingRepository extends CrudRepository<Reading, UUID> {
   Iterable<Reading> findBySensorId(UUID sensorId);
-  Iterable<Reading> findAll(Pageable pageable);
 }

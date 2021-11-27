@@ -7,7 +7,7 @@ const ReadingRow = props => {
   return (
     <tr>
       <td>{sensor.name}</td>
-      <td>{moment(createdAt).format('lll')}</td>
+      <td>{moment(createdAt).format('MMM Do, h:mm a')}</td>
       <td><NumberFormat
         value={temperature}
         displayType={"text"}

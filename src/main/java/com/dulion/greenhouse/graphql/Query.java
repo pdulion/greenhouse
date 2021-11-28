@@ -7,11 +7,15 @@ import com.dulion.greenhouse.entity.Sensor;
 import com.dulion.greenhouse.entity.SensorRepository;
 import java.util.Optional;
 import java.util.UUID;
+import org.slf4j.Logger;
+import static org.slf4j.LoggerFactory.getLogger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Query implements GraphQLQueryResolver {
+
+  private static final Logger logger = getLogger(Query.class);
 
   @Autowired
   private SensorRepository sensors;
@@ -23,8 +27,8 @@ public class Query implements GraphQLQueryResolver {
     return sensors.findAll();
   }
 
-  public Iterable<Reading> readings(int interval) {
-
+  public Iterable<Reading> readings(String datetime, int interval) {
+    logger.info("Datetime: {}, Interval: {}", datetime, interval);
     return readings.findAll();
   }
 

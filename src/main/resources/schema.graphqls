@@ -21,7 +21,7 @@ type Reading {
 
 type Query {
   sensors: [Sensor]
-  readings(interval: Int = 0): [Reading]
+  readings(datetime: String = "", interval: Int = 0): [Reading]
   sensorById(sensorId: ID): Sensor
   readingById(readingId: ID): Reading
 }
